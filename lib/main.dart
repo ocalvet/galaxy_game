@@ -1,4 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:galaxy_game/galaxy_game_app.dart';
+import 'package:galaxy_game/galaxy_game.dart';
+import 'package:flutter/material.dart' show runApp;
 
-void main() => runApp(GalaxyGameApp());
+void main() {
+  var game = GalaxyGame();
+  runApp(game.widget);
+}
