@@ -5,21 +5,28 @@ import 'package:flutter/material.dart' show TextPainter, Colors;
 
 class GalaxyGame extends BaseGame {
   @override
-    void render(Canvas canvas) {
-      super.render(canvas);
+  void render(Canvas canvas) {
+    super.render(canvas);
 
     String text = 'Galaxy Game';
-    TextPainter p = Flame.util
-        .text(text, color: Colors.white, fontSize: 48.0);
+    TextPainter textPainter =
+        Flame.util.text(text, color: Colors.white, fontSize: 48.0);
     Paint paint = Paint();
     paint.color = Color(0xFF00FF00);
-    Rect r1 = Rect.fromLTWH(100, 200, 40, 15);
-    Rect r2 = Rect.fromLTWH(200, 200, 40, 15);
-    Rect r3 = Rect.fromLTWH(140, 250, 60, 15);
+    double centerW = size.width / 2;
+    double centerH = size.height / 2;
+    Rect r1 = Rect.fromLTWH(centerW - 70, 275, 40, 15);
+    Rect r2 = Rect.fromLTWH(centerW + 30, 275, 40, 15);
+    Rect r3 = Rect.fromLTWH(centerW - 30, 325, 60, 15);
     canvas.drawArc(r3, 0.0, 3.14, false, paint);
     canvas.drawRect(r1, paint);
     canvas.drawRect(r2, paint);
-    p.paint(canvas,
-        new Offset(size.width - p.width - 10, size.height - p.height - 10));
-    }
+    textPainter.paint(
+      canvas,
+      new Offset(
+        centerW - textPainter.width / 2,
+        centerH - textPainter.height / 2,
+      ),
+    );
+  }
 }
