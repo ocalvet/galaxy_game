@@ -13,8 +13,12 @@ class GalaxyGame extends BaseGame {
         .text(text, color: Colors.white, fontSize: 48.0);
     Paint paint = Paint();
     paint.color = Color(0xFF00FF00);
-    Rect rect = Rect.fromLTWH(100, 200, 200, 400);
-    canvas.drawRect(rect, paint);
+    Rect r1 = Rect.fromLTWH(100, 200, 40, 15);
+    Rect r2 = Rect.fromLTWH(200, 200, 40, 15);
+    Rect r3 = Rect.fromLTWH(140, 250, 60, 15);
+    canvas.drawArc(r3, 0.0, 3.14, false, paint);
+    canvas.drawRect(r1, paint);
+    canvas.drawRect(r2, paint);
     p.paint(canvas,
         new Offset(size.width - p.width - 10, size.height - p.height - 10));
     }
