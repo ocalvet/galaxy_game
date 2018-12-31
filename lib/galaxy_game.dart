@@ -2,12 +2,17 @@ import 'dart:ui';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart' show TextPainter, Colors;
+import 'package:galaxy_game/space_ship.dart';
 
 class GalaxyGame extends BaseGame {
+  SpaceShip ship;
+  GalaxyGame() {
+    this.ship = SpaceShip();
+  }
+
   @override
   void render(Canvas canvas) {
     super.render(canvas);
-
     String text = 'Galaxy Game';
     TextPainter textPainter =
         Flame.util.text(text, color: Colors.white, fontSize: 48.0);
@@ -28,5 +33,9 @@ class GalaxyGame extends BaseGame {
         centerH - textPainter.height / 2,
       ),
     );
+    // Render the ship
+    this.ship.x = size.width / 2 - 64;
+    this.ship.y = 460.0;
+    this.ship.render(canvas);
   }
 }
