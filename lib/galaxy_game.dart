@@ -40,14 +40,11 @@ class GalaxyGame extends BaseGame {
         centerH - textPainter.height / 2,
       ),
     );
-    // Render the ship
   }
 
   @override
   void update(double t) {
-    // print(t);
     if (ship != null) ship.update(t);
-    // super.update(t);
   }
 
   void input(double x, double y) {
@@ -62,8 +59,5 @@ class GalaxyGame extends BaseGame {
         ship = null;
       }
     }
-    // if (ship != null) {
-    //   ship = null;
-    // }
   }
 }
