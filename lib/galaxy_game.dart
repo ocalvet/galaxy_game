@@ -14,7 +14,12 @@ class GalaxyGame extends BaseGame {
 
   @override
   void render(Canvas canvas) {
-    super.render(canvas);
+    canvas.save();
+    if (ship != null) {
+      ship.render(canvas);
+      canvas.restore();
+      canvas.save();
+    }
     String text = 'Galaxy Game';
     TextPainter textPainter =
         Flame.util.text(text, color: Colors.white, fontSize: 48.0);
@@ -36,7 +41,6 @@ class GalaxyGame extends BaseGame {
       ),
     );
     // Render the ship
-    if (ship != null) ship.render(canvas);
   }
 
   @override
