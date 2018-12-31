@@ -53,7 +53,17 @@ class GalaxyGame extends BaseGame {
   void input(double x, double y) {
     // Delete the ship on a screen click
     if (ship != null) {
-      ship = null;
+      print('$x, $y | ${ship.x}, ${ship.y}');
+      double dx = (ship.x - x).abs();
+      double dy = (ship.y - y).abs();
+      var diff = 64;
+      var remove = (dx < diff && dy < diff);
+      if (remove) {
+        ship = null;
+      }
     }
+    // if (ship != null) {
+    //   ship = null;
+    // }
   }
 }

@@ -9,11 +9,13 @@ void main() async {
   Flame.audio.disableLog();
   var game = GalaxyGame();
   Size dimensions = await Flame.util.initialDimensions();
-  print('Game created');
+  print('Game created $dimensions');
   runApp(game.widget);
   window.onPointerDataPacket = (packet) {
-    print('click happened');
-      var pointer = packet.data.first;
-      game.input(pointer.physicalX, pointer.physicalY);
+    var pointer = packet.data.first;
+    game.input(
+      pointer.physicalX / window.devicePixelRatio,
+      pointer.physicalY / window.devicePixelRatio,
+    );
   };
 }
