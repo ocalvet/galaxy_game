@@ -7,6 +7,7 @@ import 'package:flutter/material.dart' show runApp;
 void main() async {
   Flame.util.enableEvents();
   Flame.audio.disableLog();
+  Flame.audio.play('main_sound.mp3');
   var game = GalaxyGame();
   Size dimensions = await Flame.util.initialDimensions();
   print('Game created $dimensions');
