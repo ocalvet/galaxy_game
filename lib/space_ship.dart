@@ -13,5 +13,6 @@ class SpaceShip extends SpriteComponent {
   @override
   void update(double t) {
     y > 1000 ? y = -128 : y += t * SPEED;
+    angle += t * 5;
   }
 }
