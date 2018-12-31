@@ -36,13 +36,20 @@ class GalaxyGame extends BaseGame {
       ),
     );
     // Render the ship
-    ship.render(canvas);
+    if (ship != null) ship.render(canvas);
   }
 
   @override
-    void update(double t) {
-      // print(t);
-      ship.update(t);
-      // super.update(t);
+  void update(double t) {
+    // print(t);
+    if (ship != null) ship.update(t);
+    // super.update(t);
+  }
+
+  void input(double x, double y) {
+    // Delete the ship on a screen click
+    if (ship != null) {
+      ship = null;
     }
+  }
 }
