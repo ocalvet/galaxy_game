@@ -1,6 +1,7 @@
 import 'package:flame/components/component.dart';
 
 const SPEED = 100;
+const ROTATION_SPEED =0.9;
 
 class SpaceShip extends SpriteComponent {
 
@@ -13,6 +14,6 @@ class SpaceShip extends SpriteComponent {
   @override
   void update(double t) {
     y > 1000 ? y = -128 : y += t * SPEED;
-    angle += t * 5;
+    angle += t * ROTATION_SPEED;
   }
 }
