@@ -4,6 +4,8 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart' show TextPainter, Colors;
 import 'package:galaxy_game/space_ship.dart';
 
+const SPEED = 100;
+
 class GalaxyGame extends BaseGame {
   SpaceShip ship;
   GalaxyGame() {
@@ -34,8 +36,13 @@ class GalaxyGame extends BaseGame {
       ),
     );
     // Render the ship
-    this.ship.x = size.width / 2 - 64;
-    this.ship.y = 460.0;
-    this.ship.render(canvas);
+    ship.render(canvas);
   }
+
+  @override
+    void update(double t) {
+      // print(t);
+      ship.update(t);
+      // super.update(t);
+    }
 }
